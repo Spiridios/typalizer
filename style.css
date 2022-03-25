@@ -8,7 +8,7 @@ table {
     border: 1px solid darkgray;
 }
 
-td.defense {
+td.Defense {
     writing-mode: vertical-rl;
     text-orientation: sideways;
     vertical-align: top;
@@ -19,11 +19,11 @@ td {
     text-align: center;
 }
 
-td.split {
+td.Split {
     width: 5em;
 }
 
-td.attack,td.defense {
+td.Attack,td.Defense {
     width: 1.5em;
     text-align: left;
     font-weight: bold;
