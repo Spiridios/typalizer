@@ -1,6 +1,7 @@
 var pokeData = new PokeData();
 let valueSymbols = {0.25: "¼", 0.5: "½", 0: "0", 1: "", 2: "2", 4: "4"};
 
+
 function toggleHighlightClass(classToFind, classToToggle) {
     let tds = document.getElementsByClassName(classToFind);
     if (tds && tds.length > 0) {
