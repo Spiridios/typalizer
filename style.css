@@ -1,0 +1,66 @@
+body {
+    background-color: black;
+    color: lightblue;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid darkgray;
+}
+
+td.defense {
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+    vertical-align: top;
+}
+
+td {
+    border: 1px solid darkgray;
+    text-align: center;
+}
+
+td.split {
+    width: 5em;
+}
+
+td.attack,td.defense {
+    width: 1.5em;
+    text-align: left;
+    font-weight: bold;
+    border: none;
+
+}
+
+td.Attack-Highlight {
+    background-color: #571a1a;
+}
+
+td.Defense-Highlight {
+    background-color: #273818;
+}
+
+td.Defense-Highlight.strong {
+    background-color: #004400;
+}
+
+td.Defense-Highlight.weak {
+    background-color: #6d2000;
+}
+
+td.Defense-Highlight.immune {
+    background-color: #2c2000;
+}
+
+td.strong {
+    background-color: #006400;
+}
+
+td.weak {
+    background-color: #8b0000;
+}
+
+td.immune {
+    background-color: #2c0000;
+    color: #a19d58;
+}
+
