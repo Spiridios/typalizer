@@ -1,6 +1,6 @@
 var pokeData = new PokeData();
-let valueSymbols = {0.25: "¼", 0.5: "½", 0: "0", 1: "", 2: "2", 4: "4"};
-
+let valueSymbols = {0.0625: "1/16", 0.125: "⅛", 0.25: "¼", 0.5: "½", 1: ""};
+let selectedDefense = [];
 
 function toggleHighlightClass(classToFind, classToToggle) {
     let tds = document.getElementsByClassName(classToFind);
@@ -37,24 +37,36 @@ function updateAttacks(selectedDefense) {
         let td = tds[0];
 
         if (attackMap[typeIdx] != undefined) {
-            td.innerText = valueSymbols[attackMap[typeIdx]];
+            td.innerText = valueSymbols[attackMap[typeIdx]] === undefined
+                ? attackMap[typeIdx] : valueSymbols[attackMap[typeIdx]];
         } else {
             td.innerText = "";
         }
     }
 }
 
-selectedDefense=new Set();
-
-
 function defenseClick(type) {
-    if (selectedDefense.has(type)) {
-        selectedDefense.delete(type);
+    if (selectedDefense.includes(type)) {
+        selectedDefense = selectedDefense.filter(e => e !== type)
     } else {
-        selectedDefense.add(type);
+        selectedDefense.push(type);
     }
+
+    if (selectedDefense.length > 2) {
+        let removedType = selectedDefense.shift();
+        toggleHighlightClass(removedType + "-Defense", "Defense-Highlight");
+    }
+
     updateAttacks(selectedDefense);
     toggleHighlightClass(type + "-Defense", "Defense-Highlight");
+}
+
+function clearSelection() {
+    while(selectedDefense.length > 0) {
+        let type = selectedDefense.pop();
+        toggleHighlightClass(type + "-Defense", "Defense-Highlight");
+    }
+    updateAttacks(selectedDefense);
 }
 
 function attackClick(type) {
@@ -104,7 +116,8 @@ function createTypesTable() {
             let defenseTypeName = pokeData.githubData[d].name;
             let td = document.createElement("td");
             let attackValue = pokeData.attackDefenseLookup[a][d];
-            td.innerText = valueSymbols[attackValue];
+            td.innerText = valueSymbols[attackValue] === undefined
+                ? attackValue : valueSymbols[attackValue];
             td.classList.add(attackClass[attackValue],  attackTypeName + "-" + defenseTypeName, attackTypeName + "-Attack", defenseTypeName + "-Defense");
 
             tr.appendChild(td);
