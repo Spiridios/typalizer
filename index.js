@@ -92,7 +92,7 @@ function createTypesTable() {
         let defenseTypeName=pokeData.githubData[i].name;
         let th = document.createElement("td");
         th.innerText = defenseTypeName;
-        th.classList.add('Defense', defenseTypeName + "-Defense");
+        th.classList.add('Defense', defenseTypeName + "-Defense", defenseTypeName + "-Header");
 
         th.onclick = function() {defenseClick(defenseTypeName);};
         tr.appendChild(th);
@@ -105,7 +105,7 @@ function createTypesTable() {
         let attackTypeName = pokeData.typeNames[a];
         let th = document.createElement("td");
         th.innerText = attackTypeName;
-        th.classList.add('Attack', attackTypeName + "-Attack");
+        th.classList.add('Attack', attackTypeName + "-Attack", attackTypeName + "-Header");
         th.onclick = function() {attackClick(attackTypeName);};
         tr.appendChild(th);
         th = document.createElement("td");
