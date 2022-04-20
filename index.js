@@ -1,6 +1,8 @@
 var pokeData = new PokeData();
 let valueSymbols = {0.0625: "1/16", 0.125: "⅛", 0.25: "¼", 0.5: "½", 1: ""};
 let selectedDefense = [];
+let selectedAttacks = [];
+let maxAttacks = 0;
 
 function toggleHighlightClass(classToFind, classToToggle) {
     let tds = document.getElementsByClassName(classToFind);
@@ -67,9 +69,25 @@ function clearSelection() {
         toggleHighlightClass(type + "-Defense", "Defense-Highlight");
     }
     updateAttacks(selectedDefense);
+
+    while(selectedAttacks.length > 0) {
+        let type = selectedAttacks.pop();
+        toggleHighlightClass(type + "-Attack", "Attack-Highlight");
+    }
 }
 
 function attackClick(type) {
+    if (selectedAttacks.includes(type)) {
+        selectedAttacks = selectedAttacks.filter(e => e !== type)
+    } else {
+        selectedAttacks.push(type);
+    }
+
+    if (maxAttacks > 0 && selectedAttacks.length > maxAttacks) {
+        let removedType = selectedAttacks.shift();
+        toggleHighlightClass(removedType + "-Attack", "Attack-Highlight");
+    }
+
     toggleHighlightClass(type + "-Attack", "Attack-Highlight");
 }
 
