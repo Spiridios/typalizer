@@ -91,11 +91,20 @@ function attackClick(type) {
     toggleHighlightClass(type + "-Attack", "Attack-Highlight");
 }
 
-
 function createTypesTable() {
     let attackClass = {0.5: "weak", 0: "immune", 1: "normal", 2: "strong"};
 
     let typesTable = document.getElementById("typesTable");
+    // Make sure table is empty
+    let child = typesTable.lastElementChild; 
+    while (child) {
+        typesTable.removeChild(child);
+        child = typesTable.lastElementChild;
+    }
+    //typesTable.removeChild();
+
+
+
     let tr = document.createElement("tr");
     let lth = document.createElement("td");
     lth.innerHTML = "Defense →<br/><br/>Attack ⤵";
@@ -107,7 +116,7 @@ function createTypesTable() {
     tr.appendChild(lth);
     // Defense headers
     for (let i = 0; i < pokeData.numTypes;i++) {
-        let defenseTypeName=pokeData.githubData[i].name;
+        let defenseTypeName=pokeData.activeData[i].name;
         let th = document.createElement("td");
         th.innerText = defenseTypeName;
         th.classList.add('Defense', defenseTypeName + "-Defense", defenseTypeName + "-Header");
@@ -131,7 +140,7 @@ function createTypesTable() {
         tr.appendChild(th);
 
         for (let d = 0; d < pokeData.numTypes; d++) {
-            let defenseTypeName = pokeData.githubData[d].name;
+            let defenseTypeName = pokeData.activeData[d].name;
             let td = document.createElement("td");
             let attackValue = pokeData.attackDefenseLookup[a][d];
             td.innerText = valueSymbols[attackValue] === undefined
@@ -142,6 +151,22 @@ function createTypesTable() {
         }
         typesTable.appendChild(tr);
     }
+}
+
+function generationChanged() {
+    pokemonGen = document.getElementById("pokemonGen");
+    switch(pokemonGen.value) {
+        case('1'):
+            pokeData.setData(pokeData.genIData);
+            break;
+        case('2'):
+            pokeData.setData(pokeData.genIIthruVData);
+            break;
+        case('6'):
+            pokeData.setData(pokeData.genVIData);
+            break;
+    }
+    createTypesTable();
 }
 
 function onload() {
