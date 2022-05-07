@@ -36,13 +36,15 @@ function updateAttacks(selectedDefense) {
 
     for (let typeIdx = 0; typeIdx < pokeData.numTypes; typeIdx ++) {
         let tds = document.getElementsByClassName(pokeData.typeNames[typeIdx] + "-Combined-Attack");
-        let td = tds[0];
+        if (tds.length > 0) {
+            let td = tds[0];
 
-        if (attackMap[typeIdx] != undefined) {
-            td.innerText = valueSymbols[attackMap[typeIdx]] === undefined
-                ? attackMap[typeIdx] : valueSymbols[attackMap[typeIdx]];
-        } else {
-            td.innerText = "";
+            if (attackMap[typeIdx] != undefined) {
+                td.innerText = valueSymbols[attackMap[typeIdx]] === undefined
+                    ? attackMap[typeIdx] : valueSymbols[attackMap[typeIdx]];
+            } else {
+                td.innerText = "";
+            }
         }
     }
 }
@@ -94,6 +96,8 @@ function attackClick(type) {
 function createTypesTable() {
     let attackClass = {0.5: "weak", 0: "immune", 1: "normal", 2: "strong"};
 
+    clearSelection();
+
     let typesTable = document.getElementById("typesTable");
     // Make sure table is empty
     let child = typesTable.lastElementChild; 
@@ -101,9 +105,6 @@ function createTypesTable() {
         typesTable.removeChild(child);
         child = typesTable.lastElementChild;
     }
-    //typesTable.removeChild();
-
-
 
     let tr = document.createElement("tr");
     let lth = document.createElement("td");
