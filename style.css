@@ -15,6 +15,7 @@ td.Defense {
 }
 
 td {
+    width: 1.5em;
     border: 1px solid darkgray;
     text-align: center;
 }
@@ -79,11 +80,11 @@ td.immune {
  */
 .button {
     background-color: #0000ff;
-    color: #03c9fa;
+    color: lightblue;
     padding: .5em;
     margin: 0;
     border-radius: .5em;
-    border: #03c9fa;
+    border: lightblue;
     border-style: solid;
     border-width: 1px;
 }
