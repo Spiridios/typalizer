@@ -64,3 +64,26 @@ td.immune {
     color: #a19d58;
 }
 
+.nobreak {
+    display: inline-block;
+}
+
+.toolbar {
+    margin-bottom: 1em;
+}
+
+/* select {
+    -webkit-appearance: none;
+    appearance: none;  
+}
+ */
+.button {
+    background-color: #0000ff;
+    color: #03c9fa;
+    padding: .5em;
+    margin: 0;
+    border-radius: .5em;
+    border: #03c9fa;
+    border-style: solid;
+    border-width: 1px;
+}
