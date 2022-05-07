@@ -13,13 +13,14 @@
 </head>
 
 <body onload="onload()">
-  <p onclick="clearSelection()">Clear</p>
-
-  <select id="pokemonGen" onchange="generationChanged()">
-    <option value="1">Gen I</option>
-    <option value="2">Gen II - V</option>
-    <option value="6" selected="selected">Gen VI +</option>
-  </select>
+  <div class="toolbar">
+    <select class="nobreak button" id="pokemonGen" onchange="generationChanged()">
+      <option class="button" value="1">Gen I</option>
+      <option value="2">Gen II - V</option>
+      <option value="6" selected="selected">Gen VI +</option>
+    </select>
+    <button class="nobreak button" onclick="clearSelection()">Clear</button>
+  </div>
   <table id="typesTable">
   </table>
   <script src="poke_data.js"></script>
