@@ -3,7 +3,12 @@ body {
     color: lightblue;
 }
 
+#typesTableContainer {
+    overflow-x: scroll;
+}
+
 table {
+    background-color: black;
     border-collapse: collapse;
     border: 1px solid darkgray;
 }
@@ -15,7 +20,8 @@ td.Defense {
 }
 
 td {
-    width: 1.5em;
+    width: 1.4em;
+    min-width: 1.4em;
     border: 1px solid darkgray;
     text-align: center;
 }
@@ -24,12 +30,15 @@ td.Split {
     width: 5em;
 }
 
+/* td.Attack, td.Split {
+    position: -webkit-sticky;
+    position: sticky;
+} */
+
 td.Attack,td.Defense {
-    width: 1.5em;
     text-align: left;
     font-weight: bold;
     border: none;
-
 }
 
 td.Attack-Highlight {
