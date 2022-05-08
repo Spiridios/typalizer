@@ -3,10 +3,6 @@ body {
     color: lightblue;
 }
 
-#typesTableContainer {
-    overflow-x: scroll;
-}
-
 table {
     background-color: black;
     border-collapse: collapse;
@@ -20,8 +16,8 @@ td.Defense {
 }
 
 td {
-    width: 1.4em;
-    min-width: 1.4em;
+    width: 1.2em;
+    min-width: 1.2em;
     border: 1px solid darkgray;
     text-align: center;
 }
