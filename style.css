@@ -13,12 +13,14 @@ td.Defense {
     writing-mode: vertical-rl;
     text-orientation: sideways;
     vertical-align: top;
+    height: 7em;
+    min-height: 7em;
 }
 
 td {
-    width: 1.2em;
-    min-width: 1.2em;
-    font-size: 12px;
+    width: 1.3em;
+    min-width: 1.3em;
+    font-size: 9pt;
     border: 1px solid darkgray;
     text-align: center;
 }
