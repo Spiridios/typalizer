@@ -18,6 +18,7 @@ td.Defense {
 td {
     width: 1.2em;
     min-width: 1.2em;
+    font-size: 12px;
     border: 1px solid darkgray;
     text-align: center;
 }
@@ -25,11 +26,6 @@ td {
 td.Split {
     width: 5em;
 }
-
-/* td.Attack, td.Split {
-    position: -webkit-sticky;
-    position: sticky;
-} */
 
 td.Attack,td.Defense {
     text-align: left;
@@ -78,11 +74,6 @@ td.immune {
     margin-bottom: 1em;
 }
 
-/* select {
-    -webkit-appearance: none;
-    appearance: none;  
-}
- */
 .button {
     background-color: #0000ff;
     color: lightblue;
