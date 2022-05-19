@@ -3,7 +3,13 @@ body {
     color: lightblue;
 }
 
+div.appContainer {
+    width: 100%;
+}
+
 table {
+    width: 100%;
+    max-width: 40em;
     background-color: black;
     border-collapse: collapse;
     border: 1px solid darkgray;
@@ -18,11 +24,16 @@ td.Defense {
 }
 
 td {
-    width: 1.3em;
-    min-width: 1.3em;
+    /* width: 1.3em; */
+    min-width: 1em;
+    max-width: 2em;
     font-size: 9pt;
     border: 1px solid darkgray;
     text-align: center;
+}
+
+td.Attack {
+    min-width: 4em;
 }
 
 td.Split {
