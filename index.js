@@ -3,6 +3,7 @@ let valueSymbols = {0.0625: "1/16", 0.125: "⅛", 0.25: "¼", 0.5: "½", 1: ""};
 let selectedDefense = [];
 let selectedAttacks = [];
 let maxAttacks = 0;
+let maxDefense = 3;
 
 function toggleHighlightClass(classToFind, classToToggle) {
     let tds = document.getElementsByClassName(classToFind);
@@ -56,7 +57,7 @@ function defenseClick(type) {
         selectedDefense.push(type);
     }
 
-    if (selectedDefense.length > 2) {
+    if (maxDefense > 0 && selectedDefense.length > maxDefense) {
         let removedType = selectedDefense.shift();
         toggleHighlightClass(removedType + "-Defense", "Defense-Highlight");
     }
