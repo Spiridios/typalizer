@@ -2,6 +2,7 @@
 
 destination="$1"
 
-cp *.html "${destination}"
-cp *.js "${destination}"
-cp *.css "${destination}"
+cp src/* "${destination}"
+# cp *.html "${destination}"
+# cp *.js "${destination}"
+# cp *.css "${destination}"
