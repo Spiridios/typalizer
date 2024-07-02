@@ -101,7 +101,7 @@ function createTypesTable() {
 
     let typesTable = document.getElementById("typesTable");
     // Make sure table is empty
-    let child = typesTable.lastElementChild; 
+    let child = typesTable.lastElementChild;
     while (child) {
         typesTable.removeChild(child);
         child = typesTable.lastElementChild;
@@ -158,6 +158,9 @@ function createTypesTable() {
 function generationChanged() {
     pokemonGen = document.getElementById("pokemonGen");
     switch(pokemonGen.value) {
+        case('P1'):
+            pokeData.setData(pokeData.palData);
+            break;
         case('1'):
             pokeData.setData(pokeData.genIData);
             break;

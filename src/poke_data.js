@@ -71,6 +71,16 @@ class PokeData {
     {"name": "Ghost", "immunes": ["Normal", "Psychic"], "weaknesses": [], "strengths": ["Ghost"]},
     {"name": "Dragon", "immunes": [], "weaknesses": [], "strengths": ["Dragon"]}]
 
+    palData=[{"name": "Normal", "immunes": [], "weaknesses": [], "strengths": []},
+    {"name": "Fire", "immunes": [], "weaknesses": ["Fire", "Water"], "strengths": ["Grass", "Ice"]},
+    {"name": "Water", "immunes": [], "weaknesses": ["Water", "Electric"], "strengths": ["Fire"]},
+    {"name": "Electric", "immunes": [], "weaknesses": ["Ground", "Electric"], "strengths": ["Water"]},
+    {"name": "Grass", "immunes": [], "weaknesses": ["Fire", "Grass"], "strengths": ["Ground"]},
+    {"name": "Ice", "immunes": [], "weaknesses": ["Fire", "Ice"], "strengths": ["Dragon"]},
+    {"name": "Ground", "immunes": [], "weaknesses": ["Grass", "Ground"], "strengths": ["Electric"]},
+    {"name": "Dragon", "immunes": [], "weaknesses": ["Ice", "Dragon"], "strengths": ["Dark"]},
+    {"name": "Dark", "immunes": [], "weaknesses": ["Dragon", "Dark"], "strengths": ["Normal"]}]
+
     activeData=this.genVIData;
 
     createTypeNames() {
@@ -80,7 +90,7 @@ class PokeData {
         }
         return types;
     }
-    
+
     createTypeIndices() {
         let typeIndices = {};
         for (let i = 0; i < this.activeData.length;i++) {
@@ -88,7 +98,7 @@ class PokeData {
         }
         return typeIndices;
     }
-    
+
     createAttackDefenseLookup() {
         let attackDefenseTable = [];
         for (let a = 0; a < this.activeData.length; a++) {
@@ -97,17 +107,17 @@ class PokeData {
             for (let d = 0; d < this.activeData.length; d++) {
                 currentRow.push(1);
             }
-    
+
             for (let i = 0; i < this.activeData[a].immunes.length; i++) {
                 let d = this.typeIndices[this.activeData[a].immunes[i]];
                 currentRow[d] = 0;
             }
-    
+
             for (let s = 0; s < this.activeData[a].strengths.length; s++) {
                 let d = this.typeIndices[this.activeData[a].strengths[s]];
                 currentRow[d] = 2;
             }
-    
+
             for (let w = 0; w < this.activeData[a].weaknesses.length; w++) {
                 let d = this.typeIndices[this.activeData[a].weaknesses[w]];
                 currentRow[d] = .5;
@@ -115,7 +125,7 @@ class PokeData {
         }
         return attackDefenseTable;
     }
-    
+
     setData(data) {
         this.activeData = data;
         this.typeNames = this.createTypeNames();
